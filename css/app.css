@@ -22,11 +22,11 @@ img {
     /* larghezza colonna data da card + padding della colonna */
     --col-width: calc((264px + (16px * 2)) + (8 * 2));
     /* larghezza container data da una colonna */
-    --container-mobile: calc((264px + (16px * 2)) + (8 * 2));
+    --container-mobile: calc((264px + (16px * 2)) + (8px * 2) - 16px);
     /* larghezza data da due colonne più margine */
-    --container-md: calc(((264px + (16px * 2)) + (8 * 2)) * 2);
+    --container-md: calc((((264px + (16px * 2)) + (8px * 2)) * 2) - 16px);
     /* larghezza data da tre colonne più margine */
-    --container-lg: calc(((264px + (16px * 2)) + (8 * 2)) * 3)
+    --container-lg: calc((((264px + (16px * 2)) + (8px * 2)) * 3) - 16px);
 }
 
 /* project rules */
@@ -43,6 +43,13 @@ header {
 }
 
 body {
+    height: 100vh;
+}
+
+main {
+    padding: 50px 0;
+    height: calc(100% - 172.8px);
+    overflow: auto;
     background-image: url(../img/cork.png);
     background-repeat: repeat-y;
     background-size: cover;
@@ -50,10 +57,21 @@ body {
 
 .card {
     padding: 16px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
     width: var(--card-width);
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.pin {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -35%);
 }
 
 .img-264px {
@@ -78,6 +96,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
+    row-gap: 16px;
     margin-left: -8px;
     margin-right: -8px;
 }

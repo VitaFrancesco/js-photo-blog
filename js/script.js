@@ -40,6 +40,24 @@ function myCreateElement(
     return el;
 };
 
+function createPosts (array, frag) {
+    array.forEach(({ url, title }) => {
+        const postEl = myCreateElement('div', ["col-resp"],
+            [
+                myCreateElement('div', ['card'],
+                [
+                    myCreateElement('div', ['img-264px'],
+                    [
+                        myCreateElement('img', [], [], (el) => (el.src = url))
+                    ]),
+                    myCreateElement('p', ['text-post'],`${title}`),
+                    myCreateElement('img', ['pin'], [], (el) => (el.src = './/img/pin.svg'))
+                ])
+            ]);
+        frag.appendChild(postEl);
+    });
+};
+
 axios.get('https://jsonplaceholder.typicode.com/photos', { // oppure 'url...?_limit=6'
     params: {
         _limit: 6,
@@ -57,20 +75,3 @@ axios.get('https://jsonplaceholder.typicode.com/photos', { // oppure 'url...?_li
 
 const postContainer = document.getElementById("posts-container");
 console.log(postContainer);
-
-function createPosts (array, frag) {
-    array.forEach(({ url, title }) => {
-        const postEl = myCreateElement('div', ["col-resp"],
-            [
-                myCreateElement('div', ['card'],
-                [
-                    myCreateElement('div', ['img-264px'],
-                    [
-                        myCreateElement('img', [], [], (el) => (el.src = url))
-                    ]),
-                    myCreateElement('p', ['text-post'],`${title}`)
-                ])
-            ]);
-        frag.appendChild(postEl);
-    });
-};
