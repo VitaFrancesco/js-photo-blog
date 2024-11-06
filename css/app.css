@@ -1,0 +1,106 @@
+/* reset rules */
+ol, ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+img {
+    max-width: 100%;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* variables */
+:root {
+    /* larghezza card data da img + padding */
+    --card-width: calc(264px + (16px * 2));
+    /* larghezza colonna data da card + padding della colonna */
+    --col-width: calc((264px + (16px * 2)) + (8 * 2));
+    /* larghezza container data da una colonna */
+    --container-mobile: calc((264px + (16px * 2)) + (8 * 2));
+    /* larghezza data da due colonne più margine */
+    --container-md: calc(((264px + (16px * 2)) + (8 * 2)) * 2);
+    /* larghezza data da tre colonne più margine */
+    --container-lg: calc(((264px + (16px * 2)) + (8 * 2)) * 3)
+}
+
+/* project rules */
+header {
+    font-family: "Inria Sans", sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    background-image: url(../img/wall.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px;
+}
+
+body {
+    background-image: url(../img/cork.png);
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: var(--card-width);
+}
+
+.img-264px {
+    height: 264px;
+    width: 264px;
+}
+.img-264px img {
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1 / 1;
+}
+
+.text-post {
+    color: #4B4747;
+    font-size: 14px;
+    font-family: "Inria Serif", serif;
+    font-style: italic;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.col-resp {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.container {
+    margin: auto;
+    max-width: var(--container-mobile);
+}
+
+/* approccio mobile first */
+@media (min-width:768px) {
+    .container {
+        max-width: var(--container-md);
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        max-width: var(--container-lg);
+    }
+}
