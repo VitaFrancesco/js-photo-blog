@@ -40,22 +40,33 @@ function myCreateElement(
     return el;
 };
 
+function overlayShow (urlOverlay) {
+  const overlayImg = document.querySelector('.overlay-body > img')
+  const overlay = document.querySelector('.overlay')
+  overlayImg.src = urlOverlay;
+  overlay.classList.remove('d-none');
+};
+
 function createPosts (array, frag) {
-    array.forEach(({ url, title }) => {
-        const postEl = myCreateElement('div', ["col-resp"],
-            [
-                myCreateElement('div', ['card'],
-                [
-                    myCreateElement('div', ['img-264px'],
-                    [
-                        myCreateElement('img', [], [], (el) => (el.src = url))
-                    ]),
-                    myCreateElement('p', ['text-post'],`${title}`),
-                    myCreateElement('img', ['pin'], [], (el) => (el.src = './/img/pin.svg'))
-                ])
-            ]);
-        frag.appendChild(postEl);
-    });
+  
+  array.forEach(({ url, title }) => {
+      const postEl = myCreateElement('div', ["col-resp"],
+          [
+              myCreateElement('div', ['card'],
+              [
+                  myCreateElement('div', ['img-264px'],
+                  [
+                      myCreateElement('img', [], [], (el) => (el.src = url))
+                  ]),
+                  myCreateElement('p', ['text-post'],`${title}`),
+                  myCreateElement('img', ['pin'], [], (el) => (el.src = './/img/pin.svg'))
+              ])
+          ]);
+      frag.appendChild(postEl);
+      postEl.addEventListener('click', function () {
+        overlayShow(url);
+      })
+  });
 };
 
 axios.get('https://jsonplaceholder.typicode.com/photos', { // oppure 'url...?_limit=6'

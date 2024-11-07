@@ -161,6 +161,11 @@ main {
     background-color: rgba(0, 0, 0, 0);
 }
 
+/* utilities */
+.d-none {
+    display: none;
+}
+
 /* approccio mobile first */
 @media (min-width:768px) {
     .container {
