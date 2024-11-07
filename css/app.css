@@ -69,8 +69,11 @@ main {
 }
 
 .card:hover {
-    transform: rotate(10deg);
+    transform: rotate(10deg) scale(1.05);
     transition: transform 0.5s;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    cursor: pointer;
 }
 
 .pin {
