@@ -67,6 +67,11 @@ main {
     position: relative;
 }
 
+.card:hover {
+    transform: rotate(10deg);
+    transition: transform 0.5s;
+}
+
 .pin {
     position: absolute;
     top: 0;
