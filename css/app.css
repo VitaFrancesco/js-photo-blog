@@ -76,6 +76,10 @@ main {
     cursor: pointer;
 }
 
+#button-overlay {
+    cursor: pointer;
+}
+
 .pin {
     position: absolute;
     top: 0;
